@@ -1,0 +1,26 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: currency-service
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: ed
+    password: password
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+
+
+coinDesk:
+  baseUrl: https://api.coindesk.com
+  bpiUri: /v1/bpi/currentprice.json
+  bpiUrl: ${coinDesk.baseUrl}${coinDesk.bpiUri}
